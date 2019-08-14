@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # vue-manage-system #
 <a href="https://github.com/vuejs/vue">
     <img src="https://img.shields.io/badge/vue-2.6.10-brightgreen.svg" alt="vue">
@@ -179,3 +180,6 @@ import 'element-ui/lib/theme-default/index.css';    // 默认主题
 ## License
 
 [MIT](https://github.com/lin-xin/vue-manage-system/blob/master/LICENSE)
+=======
+Vue
+>>>>>>> fcb06df58cbdab20ce536b8da97feabf4371b59d
