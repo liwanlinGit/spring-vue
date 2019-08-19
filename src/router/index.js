@@ -30,7 +30,7 @@ export default new Router({
                     meta: { title: '角色管理' }
                 },
                 {
-                    path: '/login_log',
+                    path: '/login_logs',
                     component: resolve => require(['../components/page/system/loginLogs/loginlogs.vue'], resolve),
                     meta: { title: '登录日志' }
                 },
@@ -40,58 +40,21 @@ export default new Router({
                     meta: { title: '菜单管理' }
                 },
                 {
-                    path: '/form',
-                    component: resolve => require(['../components/page/BaseForm.vue'], resolve),
-                    meta: { title: '基本表单' }
+                    path: '/admin',
+                    component: resolve => require(['../components/page/system/admin/admin.vue'], resolve),
+                    meta: { title: '系统监控' }
                 },
                 {
-                    // 富文本编辑器组件
-                    path: '/editor',
-                    component: resolve => require(['../components/page/VueEditor.vue'], resolve),
-                    meta: { title: '富文本编辑器' }
+                    path: '/sys_logs',
+                    component: resolve => require(['../components/page/system/sysLogs/sysLogs.vue'], resolve),
+                    meta: { title: '操作日志' }
                 },
                 {
-                    // markdown组件
-                    path: '/markdown',
-                    component: resolve => require(['../components/page/Markdown.vue'], resolve),
-                    meta: { title: 'markdown编辑器' }    
+                    path: '/sys_exception_logs',
+                    component: resolve => require(['../components/page/system/sysExceptionLogs/sysExceptionLogs.vue'], resolve),
+                    meta: { title: '异常日志' }
                 },
-                {
-                    // 图片上传组件
-                    path: '/upload',
-                    component: resolve => require(['../components/page/Upload.vue'], resolve),
-                    meta: { title: '文件上传' }   
-                },
-                {
-                    // vue-schart组件
-                    path: '/charts',
-                    component: resolve => require(['../components/page/BaseCharts.vue'], resolve),
-                    meta: { title: 'schart图表' }
-                },
-                {
-                    // 拖拽列表组件
-                    path: '/drag',
-                    component: resolve => require(['../components/page/DragList.vue'], resolve),
-                    meta: { title: '拖拽列表' }
-                },
-                {
-                    // 拖拽Dialog组件
-                    path: '/dialog',
-                    component: resolve => require(['../components/page/DragDialog.vue'], resolve),
-                    meta: { title: '拖拽弹框' }
-                },
-                {
-                    // 国际化组件
-                    path: '/i18n',
-                    component: resolve => require(['../components/page/I18n.vue'], resolve),
-                    meta: { title: '国际化' }
-                },
-                {
-                    // 权限页面
-                    path: '/permission',
-                    component: resolve => require(['../components/page/Permission.vue'], resolve),
-                    meta: { title: '权限测试', permission: true }
-                },
+                
                 {
                     path: '/404',
                     component: resolve => require(['../components/page/404.vue'], resolve),

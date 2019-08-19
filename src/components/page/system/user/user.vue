@@ -44,7 +44,7 @@
         </div>
 
         <!-- 编辑弹出框 -->
-        <el-dialog title="编辑" :visible.sync="editVisible" width="30%">
+        <el-dialog :title="titleName"  :visible.sync="editVisible" width="30%">
             <el-form ref="form" :model="form" label-width="70px">
                 <el-form-item label="姓名">
                 <el-input v-model="form.name" class="input"></el-input>
@@ -81,6 +81,7 @@
                 pageSize:10,
                 tableData: [],
                 multipleSelection: [],
+                titleName:'',
                 form:{
                    id:'',
                    name:'',
@@ -135,12 +136,13 @@
                     params: {'id':id}
                 });
                 this.$message(del.data.data);
-                if(addOrEdit.data.statusCode==200){
+                if(del.data.statusCode==200){
                    this.getData();
                 }
                   
             },
             async handleEdit(index, row) {
+                this.titleName="修改";
                 this.editVisible=true;
                 const user = await this.$http.get(baseURL_.sysUrl+'/sysUser/getById',{ 
                     params: {'id':row.id}
@@ -156,6 +158,7 @@
             add(){
                this.form={};
                this.editVisible=true;
+               this.titleName="添加";
             },
             // 获取 easy-mock 的模拟数据
             async getData() {

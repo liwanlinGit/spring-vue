@@ -2,7 +2,7 @@
     <div class="table">
         <div class="crumbs">
             <el-breadcrumb separator="/">
-                <el-breadcrumb-item><i class="el-icon-lx-cascades"></i> 登录日志</el-breadcrumb-item>
+                <el-breadcrumb-item><i class="el-icon-lx-cascades"></i> 操作日志</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div class="container">
@@ -13,11 +13,17 @@
             </div>
             <el-table  :data="tableData"  border class="table" ref="multipleTable"  @selection-change="handleSelectionChange">
                 <el-table-column type="index" label="序号" width="55" align="center" ></el-table-column>
-                <el-table-column prop="userName" label="用户名"  align="center" ></el-table-column>
-                <el-table-column prop="loginName" label="登录名"  align="center" ></el-table-column>
-                <el-table-column prop="roleName" label="角色名"  align="center" ></el-table-column>
-                <el-table-column prop="createTime" label="登录时间" align="center"  ></el-table-column>
-                <el-table-column prop="ip" label="IP" align="center" ></el-table-column>
+                <el-table-column prop="userName" label="用户名"  align="center" width="80"></el-table-column>
+                <el-table-column prop="loginName" label="登录名"  align="center" width="80"></el-table-column>
+                <el-table-column prop="roleName" label="角色名"  align="center" width="80"></el-table-column>
+                <el-table-column prop="createTime" label="操作时间" align="center"  width="150"></el-table-column>
+                <el-table-column prop="ip" label="IP" align="center" width="100"></el-table-column>
+                <el-table-column prop="modelName" label="操作模块" align="center" ></el-table-column>
+                <el-table-column prop="description" show-overflow-tooltip label="异常日志" align="center" ></el-table-column>
+                <el-table-column prop="url" label="地址" align="center" width="150"></el-table-column>
+                <el-table-column prop="methodType" label="请求类型" align="center" width="100"></el-table-column>
+                <el-table-column prop="method" label="请求方法" align="center" width="100"></el-table-column>
+                <el-table-column prop="args" label="参数" align="center" width="150"></el-table-column>
                
             </el-table>
           
@@ -71,13 +77,13 @@
             },
             // 初始化数据
             async getData() {
-                const loginLogs = await this.$http.get(baseURL_.sysUrl+'/sysLoginLogs/list',{ 
+                const sysExceptionLogs = await this.$http.get(baseURL_.sysUrl+'/sysExceptionLogs/list',{ 
                     params: {'page':this.page,'pageSize':this.pageSize}
                     });
-                if(loginLogs.data.statusCode==200){
-                  this.tableData=loginLogs.data.data.list;
-                  this.total=loginLogs.data.data.total;
-                  this.page=loginLogs.data.data.page;
+                if(sysExceptionLogs.data.statusCode==200){
+                  this.tableData=sysExceptionLogs.data.data.list;    
+                  this.total=sysExceptionLogs.data.data.total;
+                  this.page=sysExceptionLogs.data.data.page;
                 }
             },
             
